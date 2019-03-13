@@ -17,23 +17,35 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		
-		String[] opcoes = {"Enésimo termo PA", "Distância entre pontos", "Média aritmética"};
-		
-		int opcao = Console.mostrarMenu(opcoes, "Lista 01", null);
-		
-		switch (opcao) {
-		case 1:
-			calcularEnesimoTermoPA();
-			break;
-			
-		case 2:
-			calcularEnesimoTermoPA();
-			break;
-			
-		case 3:
-			calcularMediaAritmeticaAluno();
-			break;
-		}
+		String[] opcoes = {"Enésimo termo PA",
+						   "Distância entre pontos",
+						   "Média aritmética",
+						   "Média harmônica"};
+		boolean continua = true;
+		do {
+			int opcao = Console.mostrarMenu(opcoes, "Lista 01", null);
+			switch (opcao) {
+			case 1:
+				calcularEnesimoTermoPA();
+				break;
+				
+			case 2:
+				calcularEnesimoTermoPA();
+				break;
+				
+			case 3:
+				calcularMediaAritmeticaAluno();
+				break;
+				
+			case 4:
+				calcularMediaHarmonica();
+				break;
+				
+			case -1:
+				continua = false;
+				break;
+			}
+		} while (continua);
 	}
 	
 	/**
@@ -85,6 +97,22 @@ public class Principal {
 		// Mostra o resultado na tela
 		//System.out.println("O resultado é: " + String.format("%.2f", mediaAritmetica));
 		System.out.printf("O resultado é: %.2f", mediaAritmetica);
+	}
+	
+	/**
+	 * Faz a execução de tela do cálculo da média harmônica.
+	 */
+	public static void calcularMediaHarmonica() {
+		// Pega as 3 notas do teclado
+		double nota1 = Console.recuperaDecimal("Digite a primeira nota:");
+		double nota2 = Console.recuperaDecimal("Digite a segunda nota:");
+		double nota3 = Console.recuperaDecimal("Digite a terceira nota:");
+		
+		// Executa a conta
+		double mediaHarmonica = Exercicios.calcularMediaHarmonica(nota1, nota2, nota3);
+		
+		// Mostra o resultado na tela
+		System.out.printf("O resultado é: %.2f", mediaHarmonica);
 	}
 	
 }
