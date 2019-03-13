@@ -20,7 +20,9 @@ public class Principal {
 		String[] opcoes = {"Enésimo termo PA",
 						   "Distância entre pontos",
 						   "Média aritmética",
-						   "Média harmônica"};
+						   "Média ponderada",
+						   "Média harmônica",
+						   "Conversão de temperaturas"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 01", null);
@@ -38,7 +40,15 @@ public class Principal {
 				break;
 				
 			case 4:
+				calcularMediaPonderadaAluno();
+				break;
+				
+			case 5:
 				calcularMediaHarmonica();
+				break;
+				
+			case 6:
+				converterDeCelsiusParaFahrenheit();
 				break;
 				
 			case -1:
@@ -100,6 +110,25 @@ public class Principal {
 	}
 	
 	/**
+	 * Faz a execução de tela do cálculo da média ponderada de 3 notas.
+	 */
+	public static void calcularMediaPonderadaAluno() {
+		// Pega as 3 notas e os 3 pesos do teclado
+		double n1 = Console.recuperaDecimal("Digite a primeira nota:");
+		double n2 = Console.recuperaDecimal("Digite a segunda nota:");
+		double n3 = Console.recuperaDecimal("Digite a terceira nota:");
+		int peso1 = Console.recuperaInteiro("Digite o peso da 1ª nota:");
+		int peso2 = Console.recuperaInteiro("Digite o peso da 2ª nota:");
+		int peso3 = Console.recuperaInteiro("Digite o peso da 3ª nota:");
+		
+		// Executa a conta
+		double mediaPonderada = Exercicios.calcularMediaPonderadaAluno(n1, n2, n3, peso1, peso2, peso3);
+		
+		// Mostra o resultado na tela
+		System.out.printf("O resultado é: %.2f", mediaPonderada);
+	}
+	
+	/**
 	 * Faz a execução de tela do cálculo da média harmônica.
 	 */
 	public static void calcularMediaHarmonica() {
@@ -113,6 +142,20 @@ public class Principal {
 		
 		// Mostra o resultado na tela
 		System.out.printf("O resultado é: %.2f", mediaHarmonica);
+	}
+	
+	/**
+	 * Faz a execução de tela da conversão de uma temperatura de Celsius para Fahrenheit.
+	 */
+	public static void converterDeCelsiusParaFahrenheit() {
+		// Pega a temperatura em Celsius do teclado
+		double c = Console.recuperaDecimal("Digite uma temperatura em Celsius:");
+		
+		// Executa a conversão
+		double conversaoCelsiusParaFahrenheit = Exercicios.converterDeCelsiusParaFahrenheit(c);
+		
+		// Mostra o resultado da conversão na tela.
+		System.out.printf("A temperatura em Fahrenheit é: %.2f", conversaoCelsiusParaFahrenheit);
 	}
 	
 }

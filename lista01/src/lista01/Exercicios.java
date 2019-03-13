@@ -55,6 +55,22 @@ public class Exercicios {
 	}
 	
 	/**
+	 * Calcula a média ponderada de 3 notas.
+	 * 
+	 * @param n1 Primeira nota do aluno.
+	 * @param n2 Segunda nota do aluno.
+	 * @param n3 Terceira nota do aluno.
+	 * @param peso1 Peso da primeira nota do aluno.
+	 * @param peso2 Peso da segunda nota do aluno.
+	 * @param peso3 Peso da terceira nota do aluno.
+	 * @return Média ponderada das 3 notas recebidas.
+	 */
+	public static double calcularMediaPonderadaAluno (double n1, double n2, double n3, int peso1, int peso2, int peso3) {
+		double mediaPonderada = ((n1 * peso1) + (n2 * peso2) + (n3 * peso3)) / (peso1 + peso2 + peso3);
+		return mediaPonderada;
+	}
+	
+	/**
 	 * Calcula a média harmônica de três notas.
 	 * 
 	 * @param nota1 Primeira nota do aluno.
@@ -64,6 +80,17 @@ public class Exercicios {
 	 */
 	public static double calcularMediaHarmonica (double nota1, double nota2, double nota3) {
 		return 3 / (1 / nota1 + 1 / nota2 + 1 / nota3);
+	}
+	
+	/**
+	 * Converte uma temperatura em Celsius para Fahrenheit.
+	 * 
+	 * @param c - Temperatura em Celsius.
+	 * @return - Retorna a temperatura convertida em Fahrenheit.
+	 */
+	public static double converterDeCelsiusParaFahrenheit (double c) {
+		double f = (9 * c + 160) / 5;
+		return f;
 	}
 	
 }
