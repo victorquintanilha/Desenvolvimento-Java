@@ -20,4 +20,38 @@ public class Exercicios {
 		return an;
 	}
 	
+	/**
+	 * Calcula a distância entre dois pontos no plano cartesiano.
+	 * @param x1 Coordenada x do ponto 1.
+	 * @param y1 Coordenada y do ponto 1.
+	 * @param x2 Coordenada x do ponto 2.
+	 * @param y2 Coordenada y do ponto 2.
+	 * @return A distância entre os pontos.
+	 */
+	public static double calcularDistanciaEntrePontos(double x1, double y1, double x2, double y2) {
+		
+		//double distancia = Math.sqrt((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
+		
+		double distanciaX = x2 - x1;
+		double distanciaY = y2 - y1;
+		double quadradoDistanciaX = Math.pow(distanciaX, 2);
+		double quadradoDistanciaY = Math.pow(distanciaY, 2);
+		double somaQuadradoDistancias = quadradoDistanciaX + quadradoDistanciaY;
+		double distancia = Math.sqrt(somaQuadradoDistancias);
+		return distancia;
+	}
+	
+	/**
+	 * Calcula a média aritmética de 3 notas.
+	 * 
+	 * @param n1 Primeira nota do aluno.
+	 * @param n2 Segunda nota do aluno.
+	 * @param n3 Terceira nota do aluno.
+	 * @return Média aritmética das 3 notas recebidas.
+	 */
+	public static double calcularMediaAritmeticaAluno (double n1, double n2, double n3) {
+		double mediaAritmetica = (n1 + n2 + n3) / 3;
+		return mediaAritmetica;
+	}
+	
 }
