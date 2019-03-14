@@ -22,7 +22,8 @@ public class Principal {
 						   "Média aritmética",
 						   "Média ponderada",
 						   "Média harmônica",
-						   "Conversão de temperaturas"};
+						   "Conversão de temperaturas",
+						   "Volume de um cilindro"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 01", null);
@@ -49,6 +50,10 @@ public class Principal {
 				
 			case 6:
 				converterDeCelsiusParaFahrenheit();
+				break;
+				
+			case 7:
+				calcularVolumeCilindro();
 				break;
 				
 			case -1:
@@ -156,6 +161,21 @@ public class Principal {
 		
 		// Mostra o resultado da conversão na tela.
 		System.out.printf("A temperatura em Fahrenheit é: %.2f", conversaoCelsiusParaFahrenheit);
+	}
+	
+	/**
+	 * Faz a execução de tela do cálculo do volume de um cilindro.
+	 */
+	public static void calcularVolumeCilindro() {
+		// Pega o raio e altura do teclado
+		double raio = Console.recuperaDecimal("Digite o raio do cilindro:");
+		double altura = Console.recuperaDecimal("Digite a altura do cilindro:");
+		
+		// Executa o cálculo
+		double volumeCilindro = Exercicios.calcularVolumeCilindro(raio, altura);
+		
+		// Mostra o resultado do cálculo na tela
+		System.out.printf("O volume do cilindro é: %.2f", volumeCilindro);
 	}
 	
 }

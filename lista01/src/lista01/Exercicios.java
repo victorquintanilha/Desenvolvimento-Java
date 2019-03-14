@@ -93,4 +93,16 @@ public class Exercicios {
 		return f;
 	}
 	
+	/**
+	 * Calcula o volume de um cilindro.
+	 * 
+	 * @param raio - Raio do cilindro.
+	 * @param altura - Altura do cilindro.
+	 * @return - O volume do cilindro.
+	 */
+	public static double calcularVolumeCilindro (double raio, double altura) {
+		double volume = 3.14 * (raio * raio) * altura;
+		return volume;
+	}
+	
 }
