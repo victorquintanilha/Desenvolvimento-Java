@@ -23,7 +23,9 @@ public class Principal {
 						   "Média ponderada",
 						   "Média harmônica",
 						   "Conversão de temperaturas",
-						   "Volume de um cilindro"};
+						   "Volume de um cilindro",
+						   "Consumo",
+						   "Porcentagem"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 01", null);
@@ -54,6 +56,14 @@ public class Principal {
 				
 			case 7:
 				calcularVolumeCilindro();
+				break;
+				
+			case 8:
+				calcularLitrosViagem();
+				break;
+				
+			case 9:
+				calcularPorcentagem();
 				break;
 				
 			case -1:
@@ -176,6 +186,36 @@ public class Principal {
 		
 		// Mostra o resultado do cálculo na tela
 		System.out.printf("O volume do cilindro é: %.2f", volumeCilindro);
+	}
+	
+	/**
+	 * Faz a execução de tela do cálculo de consumo de uma viagem.
+	 */
+	public static void calcularLitrosViagem() {
+		// Pega o tempo e velocidade média do teclado
+		double tempo = Console.recuperaDecimal("Digite o tempo da viagem em horas:");
+		double velocidade = Console.recuperaDecimal("Digite a velocidade média em km/h:");
+		
+		// Executa o cálculo
+		double litrosViagem = Exercicios.calcularLitrosViagem(tempo, velocidade);
+		
+		// Mostra o resultado do cálculo na tela
+		System.out.printf("O consumo da viagem foi: %.2f", litrosViagem);
+	}
+	
+	/**
+	 * Faz a execução de tela do cálculo de porcentagem.
+	 */
+	public static void calcularPorcentagem() {
+		// Pega o valor inicial e a porcentagem do teclado
+		double valor = Console.recuperaDecimal("Digite o valor inicial:");
+		double porcentagem = Console.recuperaDecimal("Digite a porcentagem:");
+		
+		// Executa o cálculo
+		double resultadoPorcentagem = Exercicios.calcularPorcentagem(valor, porcentagem);
+		
+		// Mostra o resultado do cálculo na tela
+		System.out.printf("Resultado: %.2f", resultadoPorcentagem);
 	}
 	
 }

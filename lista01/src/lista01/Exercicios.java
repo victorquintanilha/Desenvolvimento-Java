@@ -105,4 +105,28 @@ public class Exercicios {
 		return volume;
 	}
 	
+	/**
+	 * Calcula a quantidade de litros de combustível gasta em uma viagem.
+	 * 
+	 * @param tempo Tempo da viagem.
+	 * @param velocidade Velocidade média da viagem.
+	 * @return Consumo.
+	 */
+	public static double calcularLitrosViagem (double tempo, double velocidade) {
+		double litrosViagem = (tempo * velocidade) / 12;
+		return litrosViagem;
+	}
+	
+	/**
+	 * Calcula a soma entre um valor e uma porcentagem.
+	 * 
+	 * @param valor Valor.
+	 * @param porcentagem Porcentagem.
+	 * @return Valor somado à porcentagem selecionada.
+	 */
+	public static double calcularPorcentagem (double valor, double porcentagem) {
+		double resultadoPorcentagem = valor + (valor * (porcentagem / 100));
+		return resultadoPorcentagem;
+	}
+	
 }
