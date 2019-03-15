@@ -93,42 +93,38 @@ public class Principal {
 	 * Faz a execução de tela da distância entre pontos.
 	 */
 	public static void calcularDistanciaEntrePontos() {
-		// Pega os pontos do teclado
+
 		double x1 = Console.recuperaDecimal("A coordenada X do ponto 1:");
 		double y1 = Console.recuperaDecimal("A coordenada Y do ponto 1:");
 		double x2 = Console.recuperaDecimal("A coordenada X do ponto 2:");
 		double y2 = Console.recuperaDecimal("A coordenada Y do ponto 2:");
 		
-		// Executa a conta
 		double distancia = Exercicios.calcularDistanciaEntrePontos(x1, y1, x2, y2);
 		
-		// Mostra o resultado na tela
 		//System.out.println("A distância é: " + distancia);
-		System.out.printf("A distância é: %.4f", distancia);
+		System.out.printf("A distância é: %.4f\n\n", distancia);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo da média aritmética de 3 notas.
 	 */
 	public static void calcularMediaAritmeticaAluno() {
-		// Pega as 3 notas do teclado
+
 		double n1 = Console.recuperaDecimal("Digite a primeira nota:");
 		double n2 = Console.recuperaDecimal("Digite a segunda nota:");
 		double n3 = Console.recuperaDecimal("Digite a terceira nota:");
 		
-		// Executa a conta
 		double mediaAritmetica = Exercicios.calcularMediaAritmeticaAluno(n1, n2, n3);
 		
-		// Mostra o resultado na tela
 		//System.out.println("O resultado é: " + String.format("%.2f", mediaAritmetica));
-		System.out.printf("O resultado é: %.2f", mediaAritmetica);
+		System.out.printf("O resultado é: %.2f\n\n", mediaAritmetica);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo da média ponderada de 3 notas.
 	 */
 	public static void calcularMediaPonderadaAluno() {
-		// Pega as 3 notas e os 3 pesos do teclado
+
 		double n1 = Console.recuperaDecimal("Digite a primeira nota:");
 		double n2 = Console.recuperaDecimal("Digite a segunda nota:");
 		double n3 = Console.recuperaDecimal("Digite a terceira nota:");
@@ -136,86 +132,74 @@ public class Principal {
 		int peso2 = Console.recuperaInteiro("Digite o peso da 2ª nota:");
 		int peso3 = Console.recuperaInteiro("Digite o peso da 3ª nota:");
 		
-		// Executa a conta
 		double mediaPonderada = Exercicios.calcularMediaPonderadaAluno(n1, n2, n3, peso1, peso2, peso3);
 		
-		// Mostra o resultado na tela
-		System.out.printf("O resultado é: %.2f", mediaPonderada);
+		System.out.printf("O resultado é: %.2f\n\n", mediaPonderada);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo da média harmônica.
 	 */
 	public static void calcularMediaHarmonica() {
-		// Pega as 3 notas do teclado
+
 		double nota1 = Console.recuperaDecimal("Digite a primeira nota:");
 		double nota2 = Console.recuperaDecimal("Digite a segunda nota:");
 		double nota3 = Console.recuperaDecimal("Digite a terceira nota:");
 		
-		// Executa a conta
 		double mediaHarmonica = Exercicios.calcularMediaHarmonica(nota1, nota2, nota3);
 		
-		// Mostra o resultado na tela
-		System.out.printf("O resultado é: %.2f", mediaHarmonica);
+		System.out.printf("O resultado é: %.2f\n\n", mediaHarmonica);
 	}
 	
 	/**
 	 * Faz a execução de tela da conversão de uma temperatura de Celsius para Fahrenheit.
 	 */
 	public static void converterDeCelsiusParaFahrenheit() {
-		// Pega a temperatura em Celsius do teclado
+
 		double c = Console.recuperaDecimal("Digite uma temperatura em Celsius:");
 		
-		// Executa a conversão
 		double conversaoCelsiusParaFahrenheit = Exercicios.converterDeCelsiusParaFahrenheit(c);
 		
-		// Mostra o resultado da conversão na tela.
-		System.out.printf("A temperatura em Fahrenheit é: %.2f", conversaoCelsiusParaFahrenheit);
+		System.out.printf("A temperatura em Fahrenheit é: %.0f°F\n\n", conversaoCelsiusParaFahrenheit);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo do volume de um cilindro.
 	 */
 	public static void calcularVolumeCilindro() {
-		// Pega o raio e altura do teclado
+
 		double raio = Console.recuperaDecimal("Digite o raio do cilindro:");
 		double altura = Console.recuperaDecimal("Digite a altura do cilindro:");
 		
-		// Executa o cálculo
 		double volumeCilindro = Exercicios.calcularVolumeCilindro(raio, altura);
 		
-		// Mostra o resultado do cálculo na tela
-		System.out.printf("O volume do cilindro é: %.2f", volumeCilindro);
+		System.out.printf("O volume do cilindro é: %.2f\n\n", volumeCilindro);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo de consumo de uma viagem.
 	 */
 	public static void calcularLitrosViagem() {
-		// Pega o tempo e velocidade média do teclado
+
 		double tempo = Console.recuperaDecimal("Digite o tempo da viagem em horas:");
 		double velocidade = Console.recuperaDecimal("Digite a velocidade média em km/h:");
 		
-		// Executa o cálculo
 		double litrosViagem = Exercicios.calcularLitrosViagem(tempo, velocidade);
 		
-		// Mostra o resultado do cálculo na tela
-		System.out.printf("O consumo da viagem foi: %.2f", litrosViagem);
+		System.out.printf("O consumo da viagem foi: %.2f\n\n", litrosViagem);
 	}
 	
 	/**
 	 * Faz a execução de tela do cálculo de porcentagem.
 	 */
 	public static void calcularPorcentagem() {
-		// Pega o valor inicial e a porcentagem do teclado
+
 		double valor = Console.recuperaDecimal("Digite o valor inicial:");
 		double porcentagem = Console.recuperaDecimal("Digite a porcentagem:");
-		
-		// Executa o cálculo
+
 		double resultadoPorcentagem = Exercicios.calcularPorcentagem(valor, porcentagem);
-		
-		// Mostra o resultado do cálculo na tela
-		System.out.printf("Resultado: %.2f", resultadoPorcentagem);
+
+		System.out.printf("Resultado: %.2f\n\n", resultadoPorcentagem);
 	}
 	
 }

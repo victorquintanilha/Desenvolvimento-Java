@@ -16,8 +16,7 @@ public class Exercicios {
 	 * @return O Enésimo termo da PA.
 	 */
 	public static int calcularEnesimoTermoPA (int a1, int n, int r) {
-		int an = a1 + (n-1) * r;
-		return an;
+		return a1 + (n-1) * r;
 	}
 	
 	/**
@@ -29,16 +28,7 @@ public class Exercicios {
 	 * @return A distância entre os pontos.
 	 */
 	public static double calcularDistanciaEntrePontos(double x1, double y1, double x2, double y2) {
-		
-		//double distancia = Math.sqrt((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
-		
-		double distanciaX = x2 - x1;
-		double distanciaY = y2 - y1;
-		double quadradoDistanciaX = Math.pow(distanciaX, 2);
-		double quadradoDistanciaY = Math.pow(distanciaY, 2);
-		double somaQuadradoDistancias = quadradoDistanciaX + quadradoDistanciaY;
-		double distancia = Math.sqrt(somaQuadradoDistancias);
-		return distancia;
+		return Math.sqrt((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
 	}
 	
 	/**
@@ -50,8 +40,7 @@ public class Exercicios {
 	 * @return Média aritmética das 3 notas recebidas.
 	 */
 	public static double calcularMediaAritmeticaAluno (double n1, double n2, double n3) {
-		double mediaAritmetica = (n1 + n2 + n3) / 3;
-		return mediaAritmetica;
+		return (n1 + n2 + n3) / 3;
 	}
 	
 	/**
@@ -66,8 +55,7 @@ public class Exercicios {
 	 * @return Média ponderada das 3 notas recebidas.
 	 */
 	public static double calcularMediaPonderadaAluno (double n1, double n2, double n3, int peso1, int peso2, int peso3) {
-		double mediaPonderada = ((n1 * peso1) + (n2 * peso2) + (n3 * peso3)) / (peso1 + peso2 + peso3);
-		return mediaPonderada;
+		return ((n1 * peso1) + (n2 * peso2) + (n3 * peso3)) / (peso1 + peso2 + peso3);
 	}
 	
 	/**
@@ -89,8 +77,8 @@ public class Exercicios {
 	 * @return - Retorna a temperatura convertida em Fahrenheit.
 	 */
 	public static double converterDeCelsiusParaFahrenheit (double c) {
-		double f = (9 * c + 160) / 5;
-		return f;
+		// 1.8 * c + 32
+		return (12.6 * c + 224) / 7;
 	}
 	
 	/**
@@ -101,8 +89,7 @@ public class Exercicios {
 	 * @return - O volume do cilindro.
 	 */
 	public static double calcularVolumeCilindro (double raio, double altura) {
-		double volume = 3.14 * (raio * raio) * altura;
-		return volume;
+		return 3.14 * (raio * raio) * altura;
 	}
 	
 	/**
@@ -113,8 +100,7 @@ public class Exercicios {
 	 * @return Consumo.
 	 */
 	public static double calcularLitrosViagem (double tempo, double velocidade) {
-		double litrosViagem = (tempo * velocidade) / 12;
-		return litrosViagem;
+		return (tempo * velocidade) / 12;
 	}
 	
 	/**
@@ -125,8 +111,7 @@ public class Exercicios {
 	 * @return Valor somado à porcentagem selecionada.
 	 */
 	public static double calcularPorcentagem (double valor, double porcentagem) {
-		double resultadoPorcentagem = valor + (valor * (porcentagem / 100));
-		return resultadoPorcentagem;
+		return valor + (valor * (porcentagem / 100));
 	}
 	
 }
