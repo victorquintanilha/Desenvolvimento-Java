@@ -1,5 +1,7 @@
 package lista03;
 
+import java.util.ArrayList;
+
 /**
  * A classe Principal do sistema.
  * 
@@ -15,7 +17,8 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		String[] opcoes = {"Peso ideal",
-						   "Calcular Báskara"};
+						   "Calcular Báskara",
+						   "Fibonacci Vetor e Array"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 03", null);
@@ -28,11 +31,34 @@ public class Principal {
 				calcularBaskara();
 				break;
 				
+			case 3:
+				criarSerieFibonacci();
+				break;
+				
 			case -1:
 				continua = false;
 				break;
 			}
 		} while (continua);
+	}
+	
+	/**
+	 * Imprime um vetor primitivo de inteiros.
+	 *  
+	 * @param valores
+	 */
+	public static void imprimirVetorInteiros(int[] valores) {
+		if (valores.length == 0) {
+			System.out.println("[]");
+		}else if(valores.length == 1) {
+			System.out.println("[" + valores[0] + "]");
+		} else {
+			System.out.print("[");
+			for (int i = 0; i < valores.length - 1; i++) {
+				System.out.print(valores[i] + ", ");
+			}
+			System.out.println(valores[valores.length - 1] + "]");
+		}		
 	}
 	
 	/**
@@ -71,6 +97,20 @@ public class Principal {
 			System.out.println("Raiz 1: " + raizes[0]);
 			System.out.println("Raiz 2: " + raizes[1]);
 		}
+	}
+	
+	/**
+	 * Cria a série de Fibonacci com vetor e Array com o tamanho informado pelo usuário.
+	 */
+	private static void criarSerieFibonacci() {
+		int quantidade = Console.recuperaInteiro("Informe a quantidade de elementos da série:");
+		
+		int[] fiboVetor = Exercicios.criaSerieFibonacciComVetor(quantidade);
+		System.out.println("Vetor primitivo");
+		imprimirVetorInteiros(fiboVetor);
+		System.out.println("ArrayList");
+		ArrayList<Integer> fiboArray = Exercicios.criarSerieFibonacciComArray(quantidade);
+		System.out.println(fiboArray);
 	}
 	
 }

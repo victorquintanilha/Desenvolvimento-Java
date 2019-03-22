@@ -1,5 +1,7 @@
 package lista03;
 
+import java.util.ArrayList;
+
 /**
  * Classe para desenvolver os exercícios da lista 03.
  * 
@@ -85,6 +87,49 @@ public class Exercicios {
 		double raiz2 = (-b - Math.sqrt(delta)) / 2 * a;
 		double[] raizes = {raiz1, raiz2};
 		return raizes;
+	}
+	
+	/**
+	 * Cria a série de Fibonacci utilizando Vetor primitivo.
+	 * 
+	 * @param quantidade Quantidade de elementos da série.
+	 * @return Um vetor primitivo de inteiros com a série de Fibonacci.
+	 */
+	public static int[] criaSerieFibonacciComVetor(int quantidade) {
+		
+		int[] fibonacci = new int[quantidade];
+		
+		for (int i = 0; i < fibonacci.length; i++) {
+			if (i == 0 || i == 1) {
+				fibonacci[i] = 1;
+			} else {
+				fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+			}
+		}
+		
+		return fibonacci;
+		
+	}
+	
+	/**
+	 * Cria a série de Fibonacci utilizando {@link ArrayList}.
+	 * 
+	 * @param quantidade Quantidade de elementos da série.
+	 * @return Um {@link ArrayList} de inteiros com a série de Fibonacci.
+	 */
+	public static ArrayList<Integer> criarSerieFibonacciComArray(int quantidade) {
+		
+		ArrayList<Integer> fibonacci = new ArrayList<>();
+		for (int i = 0; i < quantidade; i++) {
+			if (i == 0 || i == 1) {
+				fibonacci.add(1);
+			} else {
+				int valor = fibonacci.get(i-1) + fibonacci.get(i-2);
+				fibonacci.add(valor);
+			}
+		}
+		return fibonacci;
+		
 	}
 	
 }
