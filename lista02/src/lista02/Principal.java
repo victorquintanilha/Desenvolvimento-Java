@@ -20,7 +20,10 @@ public class Principal {
 		String[] opcoes = {"Mostrar vetor",
 				           "Mostrar Array",
 				           "Maior elemento",
-				           "Menor elemento"};
+				           "Menor elemento",
+				           "Vetor inverso",
+				           "Multiplicar dois vetores",
+				           "Produto escalar de dois vetores"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 02", null);
@@ -45,6 +48,20 @@ public class Principal {
 				ArrayList<Integer> menores = criarArrayDeInteiros();
 				Integer menor = Collections.min(menores);
 				System.out.println("O menor elemento do array " + menores + " é " + menor + ".");
+				break;
+				
+			case 5:
+				ArrayList<Integer> inverso = criarArrayDeInteiros();
+				Collections.reverse(inverso);
+				System.out.println(inverso);
+				break;
+				
+			case 6:
+				multiplicarVetores();
+				break;
+				
+			case 7:
+				produtoEscalarDeDoisArrays();
 				break;
 				
 			case -1:
@@ -90,7 +107,7 @@ public class Principal {
 	/**
 	 * Cria um vetor de inteiros com a quantidade escolhida pelo usuário.
 	 * 
-	 * @return
+	 * @return Vetor de inteiros.
 	 */
 	public static int[] criarVetorInteiros() {
 		int quantidade = Console.recuperaInteiro("Informe a quantidade:");
@@ -99,6 +116,48 @@ public class Principal {
 			valores[i] = Console.recuperaInteiro("Informe o valor " + (i + 1) + ":");
 		}
 		return valores;
+	}
+	
+	/**
+	 * Cria um vetor double com a quantidade de itens informado
+	 * 
+	 * @return Vetor de doubles.
+	 */
+	public static double[] criarVetorDouble(){
+		int quantidade = Console.recuperaInteiro("Informe a quantidade: ");
+		double[] valores = new double[quantidade];
+		for (int i = 0; i < quantidade; i++) {
+			valores[i] = Console.recuperaDecimal("Informe o " + (i + 1) + "º valor: ");
+		}
+		return valores;
+	}
+	
+	/**
+	 * Mulitiplica dois vetores de double.
+	 */
+	public static void multiplicarVetores() {
+		System.out.println("Criar array A");
+		double[] arrayA = criarVetorDouble();
+		System.out.println("Criar array B");
+		double[] arrayB = criarVetorDouble();
+		
+		ArrayList<Double> resultadoMultiplicacao = Exercicios.multiplicarArrays(arrayA, arrayB);
+		
+		System.out.println(resultadoMultiplicacao);
+	}
+	
+	/**
+	 * Produto Escalar de dois vetores de inteiros.
+	 */
+	private static void produtoEscalarDeDoisArrays() {
+		System.out.println("Criar array A");
+		int[] arrayA = criarVetorInteiros();
+		System.out.println("Criar array B");
+		int[] arrayB = criarVetorInteiros();
+		
+		int resultado = Exercicios.produtoEscalarDeDoisArrays(arrayA, arrayB);
+		
+		System.out.println(resultado);
 	}
 	
 }

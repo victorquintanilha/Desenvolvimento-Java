@@ -90,6 +90,147 @@ public class Exercicios {
 	}
 	
 	/**
+	 * Calcula o valor final de um produto de acordo com uma condição.
+	 * 
+	 * @param precoNormal Preço da etiqueta.
+	 * @param condicao Condição de pagamento.
+	 * @return Preço final do produto.
+	 */
+	public static double calcularPagamento (double precoNormal, int condicao) {
+		double precoFinal = precoNormal;
+		switch (condicao) {
+			case 1:
+				precoFinal = precoNormal * 0.9;
+				break;
+				
+			case 2:
+				precoFinal = precoNormal * 0.95;
+				break;
+				
+			case 3:
+				precoFinal = precoNormal;
+				break;
+				
+			case 4:
+				precoFinal = precoNormal * 1.1;
+				break;
+		}
+		return precoFinal;
+	}
+	
+	/**
+	 * Recebe dois números inteiros e realiza a operação solicitada
+	 * 
+	 * @param v1 Primeiro número.
+	 * @param v2 Segundo número.
+	 * @param operacao Operação solicitada.
+	 * @return Resultado da operação.
+	 */
+	public static double calcularInteiros (int v1, int v2, int operacao) {
+		double operacaoRealizada = 0;
+		switch (operacao) {
+			case 1:
+				operacaoRealizada = v1 + v2;
+				break;
+				
+			case 2:
+				operacaoRealizada = v1 - v2;			
+				break;
+				
+			case 3:
+				operacaoRealizada = v1 * v2;
+				break;
+				
+			case 4:
+				operacaoRealizada = v1 / v2;
+				break;
+		}
+		return operacaoRealizada;
+	}
+	
+	/**
+	 * Recebe três pontos do plano cartesiano, indica se os mesmos formam um triângulo. Caso verdadeiro,
+indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
+	 * 
+	 * @param x1 X1
+	 * @param y1 Y1
+	 * @param x2 X2
+	 * @param y2 Y2
+	 * @param x3 X3
+	 * @param y3 Y3
+	 * @return Tipo do triângulo.
+	 */
+	public static String verificarTipoDoTriangulo(int x1, int y1, int x2, int y2, int x3, int y3) {
+		int p1 = x1 + y1;
+		int p2 = x2 + y2;
+		int p3 = x3 + y3;
+		String tipo = "";
+		if (p1 < (p2 + p3) && p2 < (p1 + p3) && p3 < (p1 + p2)) {
+			if (p1 != p2 && p1 != p3 && p2 != p3) {
+				tipo = "Triângulo escaleno";
+			}
+			if (p1 == p2 || p2 == p3 || p3 == p1) {
+				tipo = "Triângulo isóceles";
+			}
+			if (p1 == p2 && p2 == p3 && p3 == p1) {
+				tipo = "Triângulo eqüilátero";
+			}
+		} else {
+			return "Não formam triângulo";
+		}
+		return tipo;
+	}
+	
+	/**
+	 * Calcula o fatorial de um número.
+	 * 
+	 * @param num Numero que se deseja calcular o fatorial.
+	 * @return Resultado do fatorial do número escolhido.
+	 */
+	public static int calcularFatorial (int num) {
+		int resultado = 1;
+		for (int i = 2; i <= num; i++) {
+			resultado *= i;
+		}
+		return resultado;
+	}
+	
+	/**
+	 * Verifica se um número é perfeito ou não.
+	 * 
+	 * @param num Número escolhido pelo usuário para verificação.
+	 * @return True = número perfeito, false = número não perfeito.
+	 */
+	public static boolean verificarNumeroPerfeito(int num) {
+		boolean result = true;
+		int soma = 1;
+		for (int i = 2; i < num; i++) {
+			if (num %i == 0) {
+				soma += i;
+			}
+		}
+		if (num != soma) {
+			result = false;
+		}
+		return result;
+	}
+	
+	/**
+	 * Verifica se um número é primo ou não.
+	 * 
+	 * @param num Número escolhido pelo usuário para verificação.
+	 * @return True = primo, false = não é primo.
+	 */
+	public static boolean verificarNumeroPrimo(int num) {
+		for (int i = 2; i < num; i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	 * Cria a série de Fibonacci utilizando Vetor primitivo.
 	 * 
 	 * @param quantidade Quantidade de elementos da série.
@@ -130,6 +271,38 @@ public class Exercicios {
 		}
 		return fibonacci;
 		
+	}
+	
+	/**
+	 * Cria a sequência do exercício 11.
+	 * 
+	 * @param n Número qualquer.
+	 * @return Sequência.
+	 */
+	public static ArrayList<Integer> criarSequencia01(int n) {
+		ArrayList<Integer> sequencia = new ArrayList<>();
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= i; j++) {
+				sequencia.add(i);
+			}
+		}
+		return sequencia;
+	}
+	
+	/**
+	 * Cria a sequência do exercício 12.
+	 * 
+	 * @param n Número qualquer.
+	 * @return Sequência.
+	 */
+	public static ArrayList<Integer> criarSequencia02(int n) {
+		ArrayList<Integer> sequencia = new ArrayList<>();
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= i; j++) {
+				sequencia.add(j);
+			}
+		}
+		return sequencia;
 	}
 	
 }
