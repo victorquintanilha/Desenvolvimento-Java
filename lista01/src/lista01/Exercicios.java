@@ -28,7 +28,15 @@ public class Exercicios {
 	 * @return A distância entre os pontos.
 	 */
 	public static double calcularDistanciaEntrePontos(double x1, double y1, double x2, double y2) {
-		return Math.sqrt((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
+		//return Math.sqrt((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
+
+		double distanciaX = x2 - x1;
+		double distanciaY = y2 - y1;
+		double quadradoDistanciaX = Math.pow(distanciaX, 2);
+		double quadradoDistanciaY = Math.pow(distanciaY, 2);
+		double somaQuadradoDistancias = quadradoDistanciaX + quadradoDistanciaY;
+		double distancia = Math.sqrt(somaQuadradoDistancias);
+		return distancia;
 	}
 	
 	/**

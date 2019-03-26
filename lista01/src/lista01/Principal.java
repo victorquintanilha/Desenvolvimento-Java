@@ -35,7 +35,7 @@ public class Principal {
 				break;
 				
 			case 2:
-				calcularEnesimoTermoPA();
+				calcularDistanciaEntrePontos();
 				break;
 				
 			case 3:

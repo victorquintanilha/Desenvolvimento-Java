@@ -1,6 +1,7 @@
 package lista03;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Classe para desenvolver os exercícios da lista 03.
@@ -165,18 +166,17 @@ indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
 		int p2 = x2 + y2;
 		int p3 = x3 + y3;
 		String tipo = "";
-		if (p1 < (p2 + p3) && p2 < (p1 + p3) && p3 < (p1 + p2)) {
-			if (p1 != p2 && p1 != p3 && p2 != p3) {
-				tipo = "Triângulo escaleno";
-			}
-			if (p1 == p2 || p2 == p3 || p3 == p1) {
-				tipo = "Triângulo isóceles";
-			}
-			if (p1 == p2 && p2 == p3 && p3 == p1) {
-				tipo = "Triângulo eqüilátero";
-			}
-		} else {
+		if (p1 > (p2 + p3) && p2 > (p1 + p3) && p3 > (p1 + p2)) {
 			return "Não formam triângulo";
+		}
+		if (p1 != p2 && p1 != p3 && p2 != p3) {
+			tipo = "Triângulo escaleno";
+		}
+		if (p1 == p2 || p2 == p3 || p3 == p1) {
+			tipo = "Triângulo isóceles";
+		}
+		if (p1 == p2 && p2 == p3 && p3 == p1) {
+			tipo = "Triângulo eqüilátero";
 		}
 		return tipo;
 	}
@@ -274,6 +274,31 @@ indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
 	}
 	
 	/**
+	 * Efetua a conversão da representação de um número na base 10 para uma
+representação em String desse número na base 8 ou na base 2.
+	 * 
+	 * @param num Número inteiro informado pelo usuário para conversão.
+	 * @return Número convertido.
+	 */
+	public static String converterDecimalBase8(int num) {
+		int cont = 0, resto = 0, quociente = 0;
+		String base8 = "";
+		ArrayList<Integer> array = new ArrayList<>();
+		while (num > 0) {
+				quociente = num / 8;
+				resto = num - ((num / 8) * 8);
+				array.add(resto);
+				num = quociente;
+				System.out.println(cont);
+		}
+		Collections.reverse(array);
+		for (int i = 0; i < array.size(); i++) {
+			base8 = base8 + Integer.toString(array.get(i));
+		}
+		return base8;
+	}
+	
+	/**
 	 * Cria a sequência do exercício 11.
 	 * 
 	 * @param n Número qualquer.
@@ -303,6 +328,28 @@ indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
 			}
 		}
 		return sequencia;
+	}
+	
+	/**
+	 * Método responsável por contabilizar a quantidade de números pares e ímpares inseridos pelo usuário.
+	 * 
+	 * @param opcao 1 = ímpar, 2 = par.
+	 * @param numero Número digitado pelo usuário
+	 * @return Quantidade de números pares e números ímpares digitados.
+	 */
+	public static int[] contabilizaParImpar(int opcao, int numero) {
+		int[] quantidadeParImpar = new int[2];
+		int somaImpar = 0;
+		int somaPar = 0;
+		if (opcao == 1) {
+			somaImpar++;
+		}
+		if (opcao == 2) {
+			somaPar++;
+		}
+		quantidadeParImpar[0] = somaImpar;
+		quantidadeParImpar[1] = somaPar;
+		return quantidadeParImpar;
 	}
 	
 }

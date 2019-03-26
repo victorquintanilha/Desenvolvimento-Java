@@ -25,8 +25,10 @@ public class Principal {
 						   "Verificar número perfeito",
 						   "Verificar número primo",
 						   "Fibonacci Vetor e Array",
+						   "Conversão de bases",
 						   "Sequência 01",
-						   "Sequência 02"};
+						   "Sequência 02",
+						   "Par - Ímpar"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 03", null);
@@ -68,12 +70,20 @@ public class Principal {
 				break;
 				
 			case 10:
-				criarSequencia01();
+				converterDecimalBase8();
 				break;
 				
 			case 11:
+				criarSequencia01();
+				break;
+				
+			case 12:
 				criarSequencia02();
 				break;
+				
+			case 13:
+				contabilizaParImpar();
+				break;	
 				
 			case -1:
 				continua = false;
@@ -152,7 +162,7 @@ public class Principal {
 		int condicao = Console.recuperaInteiro("Condição:");
 		if (condicao == 1 || condicao == 2 || condicao == 3 || condicao == 4) {
 			double precoFinal = Exercicios.calcularPagamento(precoNormal, condicao);
-			System.out.printf("%.2f\n", precoFinal);
+			System.out.printf("Preço final: %.2f\n", precoFinal);
 		} else {
 			System.out.println("Condição Inválida! Valor deve ser entre 1 e 4.");
 		}
@@ -172,7 +182,7 @@ public class Principal {
 		int operacao = Console.recuperaInteiro("Operação:");
 		if (operacao == 1 || operacao == 2 || operacao == 3 || operacao == 4) {
 			double operaçãoRealizada = Exercicios.calcularInteiros(v1, v2, operacao);
-			System.out.printf("%.2f\n", operaçãoRealizada);
+			System.out.printf("Resultado: %.2f\n", operaçãoRealizada);
 		} else {
 			System.out.println("Código Inválido! Valor deve ser entre 1 e 4.");
 		}
@@ -243,6 +253,16 @@ indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
 	}
 	
 	/**
+	 * Efetua a conversão da representação de um número na base 10 para uma
+representação em String desse número na base 8 ou na base 2.
+	 */
+	private static void converterDecimalBase8() {
+		int num = Console.recuperaInteiro("Informe um numero inteiro: ");
+		String base8 = Exercicios.converterDecimalBase8(num);
+		System.out.println("Base 8:" + base8);
+	}
+	
+	/**
 	 * Cria a sequência do exercício 11.
 	 */
 	private static void criarSequencia01() {
@@ -260,6 +280,33 @@ indicar se formam um triângulo escaleno, isóceles ou eqüilátero.
 		
 		ArrayList<Integer> sequencia = Exercicios.criarSequencia02(n);
 		System.out.println(sequencia);
+	}
+	
+	/**
+	 * Método responsável por contabilizar a quantidade de números pares e ímpares inseridos pelo usuário.
+	 */
+	private static void contabilizaParImpar() {
+		int[] quantidadeImparPar = null;
+		boolean continua = false;
+		System.out.print("Selecione que tipo de número deseja inserir ao contador:\n"
+				 + "1 - Digitar um número ímpar\n"
+				 + "2 - Digitar um número par\n"
+				 + "3 - Sair\n");
+		int opcao = Console.recuperaInteiro("Opção:");
+		if (opcao == 1 || opcao == 2 || opcao == 3) {
+			do {
+				int numero = Console.recuperaInteiro("Informe o número:");
+				if (opcao == 1 && numero %2 != 0 || opcao == 2 && numero == 0) {
+					quantidadeImparPar = Exercicios.contabilizaParImpar(opcao, numero);
+				} else {
+					continua = true;
+				}
+			} while (continua);
+			System.out.println("Quantidade de números ímpares: " + quantidadeImparPar[0]);
+			System.out.println("Quantidade de números pares: " + quantidadeImparPar[1]);
+		} else {
+			System.out.println("Código Inválido! Valor deve ser entre 1 e 3.");
+		}
 	}
 	
 }
