@@ -12,6 +12,73 @@ import java.util.Collections;
 public class Exercicios {
 	
 	/**
+	 * Procura um elemento no vetor. Se encontrar retorna true, caso contrário retorna false.
+	 * 
+	 * @param vetor
+	 * @param elemento
+	 * @return
+	 */
+	public static boolean procurarElemento(double[] vetor, double elemento) {
+		for (double item : vetor) {
+			if (item == elemento) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Adiciona um elemento no vetor.
+	 * 
+	 * @param vetor
+	 * @param elemento
+	 * @return
+	 */
+	public static double[] adicionarElemento(double[] vetor, double elemento) {
+		/**
+		 * Cria um vetor novo com uma posição a mais para poder armazenar mais um elemento.
+		 */
+		double[] vetorRetorno = new double[vetor.length + 1];
+		/**
+		 * Percorre a lista para fazer a cópia do vetor anterior para o novo.
+		 */
+		for (int i = 0; i < vetor.length; i++) {
+			vetorRetorno[i] = vetor[i];
+		}
+		/**
+		 * Adiciona o novo elemento na última posição criada.
+		 */
+		vetorRetorno[vetor.length] = elemento;
+		/**
+		 * Ao final retorna o vetor com mais um elemento.
+		 */
+		return vetorRetorno;
+	}
+	
+	/**
+	 * Método que realiza a contagem de ocorrências de um determinado elemento no vetor.
+	 * 
+	 * @param vetor
+	 * @param elemento
+	 * @return
+	 */
+	public static int contarOcorrencias(double[] vetor, double elemento) {
+		/**
+		 * Variável para armazenar a quantidade de ocorrências.
+		 */
+		int ocorrencias = 0;
+		for (double item : vetor) {
+			if (item == elemento) {
+				ocorrencias++;
+			}
+		}
+		/**
+		 * Ao final retorna a quantidade de ocorrências.
+		 */
+		return ocorrencias;
+	}
+	
+	/**
 	 * Multiplica dois vetores de double.
 	 * 
 	 * @param arrayA Array de double.
@@ -141,6 +208,132 @@ public class Exercicios {
 			}
 		}
 		return arrayC;
+	}
+	
+	/**
+	 * Mostra os elementos repetidos de um vetor e a quantidade de repetições.
+	 * 
+	 * @param vetor
+	 */
+	public static void mostrarElementosRepetidos(double[] vetor) {
+		double[] valoresAnalisados = new double[0];
+		boolean primeiro = true;
+		Principal.imprimirVetorDouble(vetor);
+		System.out.print(" = ");
+		for (double item : vetor) {
+			if (procurarElemento(valoresAnalisados, item)) {
+				continue;
+			}
+			int ocorrencias = contarOcorrencias(vetor, item);
+			if (ocorrencias > 1) {
+				if (!primeiro) {
+					System.out.print(", ");
+				}
+				System.out.print(ocorrencias + " vezes o " + item);
+				if (primeiro) {
+					primeiro = false;
+				}
+				valoresAnalisados = adicionarElemento(valoresAnalisados, item);
+			}
+		}
+		System.out.print(".");
+	}
+	
+	/**
+	 * Preenche vetor apenas com valores crescentes.
+	 */
+	public static void preencheVetorCrescente() {
+		int quantidade = Console.recuperaInteiro("Entre com a quantidade de elementos: ");
+		double[] elementos = new double[quantidade];
+		elementos[0] = Console.recuperaDecimal("Entre com o elemento do vetor no índice 0:");
+		for (int i = 1; i < elementos.length; i++) {
+			double elemento = Console.recuperaDecimal("Entre com o elemento do vetor no índice " + i);
+			if (elemento > elementos[i - 1]) {
+				elementos[i] = elemento;
+			} else {
+				System.out.println("O valor deve ser maior que " + elementos[i] + ". Por favor digite novamente.");
+				i--;
+			}
+		}
+		System.out.print("Resultado: ");
+		Principal.imprimirVetorDouble(elementos);
+	}
+	
+	/**
+	 * Realiza a concatenação de dois vetores.
+	 * 
+	 * @param vetorA Vetor A.
+	 * @param vetorB Vetor B.
+	 * @return Vetor A e B concatenados.
+	 */
+	public static double[] concatenarVetor(double[] vetorA, double[] vetorB) {
+		/**
+		 * Cria um vetor para armazenar os dados da concatenação.
+		 */
+		double[] concatenado = new double[vetorA.length + vetorB.length];
+		for (int i = 0; i < vetorA.length; i++) {
+			concatenado[i] = vetorA[i];
+		}
+		for (int i = 0; i < vetorB.length; i++) {
+			concatenado[vetorA.length + i] = vetorB[i];
+		}
+		/**
+		 * Ao final retorna os vetores concatenados.
+		 */
+		return concatenado;
+	}
+	
+	/**
+	 * Método específico para realizar a união entre dois vetores sem
+	 * duplicidades.
+	 * 
+	 * @param vetorA
+	 * @param vetorB
+	 * @return
+	 */
+	public static double[] unirVetores(double[] vetorA, double[] vetorB) {
+		/**
+		 * Percorre todos os elementos do vetor B para inserir em A.
+		 */
+		for (double elemento : vetorB) {
+			if (!procurarElemento(vetorA, elemento)) {
+				vetorA = adicionarElemento(vetorA, elemento);
+			}
+		}
+		/**
+		 * Ao final retorna o vetor unificado.
+		 */
+		return vetorA;
+	}
+	
+	/**
+	 * Encontra os elementos com interseção entre os dois vetores sem
+	 * duplicidade.
+	 * 
+	 * @param vetorA
+	 * @param vetorB
+	 * @return
+	 */
+	public static double[] intersecaoVetores(double[] vetorA, double[] vetorB) {
+		/**
+		 * Variável para armazenar os elementos de interseção.
+		 */
+		double[] intersecao = new double[0];
+		/**
+		 * Percorre todos os elementos do vetor B para verificar os
+		 * correspondentes em A.
+		 */
+		for (double elemento : vetorB) {
+			if (procurarElemento(vetorA, elemento)) {
+				if (!procurarElemento(intersecao, elemento)) {
+					intersecao = adicionarElemento(intersecao, elemento);
+				}
+			}
+		}
+		/**
+		 * Ao final retorna o vetor com as interseções sem duplicidades.
+		 */
+		return intersecao;
 	}
 	
 }

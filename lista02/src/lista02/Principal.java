@@ -27,7 +27,12 @@ public class Principal {
 				           "Ordenar maior",
 				           "Serie de Fibonacci",
 				           "Analisar vetor",
-				           "Mescla de vetores"};
+				           "Mescla de vetores",
+				           "Mostra elementos repetidos",
+				           "Preenche vetor crescente",
+				           "Concatena dois vetores",
+				           "União entre dois vetores",
+				           "Interseção entre dois vetores"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 02", null);
@@ -85,12 +90,47 @@ public class Principal {
 				mesclarVetores();
 				break;
 				
+			case 12:
+				elementosRepetidos();
+				break;
+				
+			case 13:
+				preencheSempreMaiores();
+				break;
+				
+			case 14:
+				concatencaoVetores();
+				break;
+				
+			case 15:
+				uniaoVetores();
+				break;
+				
+			case 16:
+				intersecaoVetores();
+				break;
+				
 			case -1:
 				continua = false;
 				System.out.println("Saindo do sistema...");
 				break;
 			}
 		} while (continua);
+	}
+	
+	/**
+	 * Método responsável por retornar um vetor com tamanho variável e valores
+	 * escolhidos pelo usuário no console.
+	 * 
+	 * @return
+	 */
+	public static double[] recuperaVetor() {
+		int quantidadeElementos = Console.recuperaInteiro("Entre com a quantidade de elementos do vetor (inteiro):");
+		double[] valores = new double[quantidadeElementos];
+		for (int i = 0; i < valores.length; i++) {
+			valores[i] = Console.recuperaDecimal("Entre com o elemento de índice " + i + " do vetor:");
+		}
+		return valores;
 	}
 	
 	/**
@@ -126,6 +166,25 @@ public class Principal {
 	}
 	
 	/**
+	 * Imprime um vetor primitivo de doubles.
+	 *  
+	 * @param valores
+	 */
+	public static void imprimirVetorDouble(double[] valores) {
+		if (valores.length == 0) {
+			System.out.println("[]");
+		}else if(valores.length == 1) {
+			System.out.println("[" + valores[0] + "]");
+		} else {
+			System.out.print("[");
+			for (int i = 0; i < valores.length - 1; i++) {
+				System.out.print(valores[i] + ", ");
+			}
+			System.out.println(valores[valores.length - 1] + "]");
+		}		
+	}
+	
+	/**
 	 * Cria um vetor de inteiros com a quantidade escolhida pelo usuário.
 	 * 
 	 * @return Vetor de inteiros.
@@ -140,7 +199,7 @@ public class Principal {
 	}
 	
 	/**
-	 * Cria um vetor double com a quantidade de itens informado
+	 * Cria um vetor double com a quantidade de itens informados.
 	 * 
 	 * @return Vetor de doubles.
 	 */
@@ -231,6 +290,73 @@ public class Principal {
 		int[] arrayB = criarVetorInteiros();
 		ArrayList<Integer> arrayC = Exercicios.mesclarVetores(arrayA, arrayB);
 		System.out.println(arrayC);
+	}
+	
+	/**
+	 * Mostra os elementos repetidos de um vetor.
+	 */
+	public static void elementosRepetidos() {
+		double[] vetor = recuperaVetor();
+		Exercicios.mostrarElementosRepetidos(vetor);
+	}
+	
+	/**
+	 * Preenche vetores com valores crescentes.
+	 */
+	public static void preencheSempreMaiores() {
+		Exercicios.preencheVetorCrescente();
+	}
+	
+	/**
+	 * Concatena dois vetores.
+	 */
+	public static void concatencaoVetores() {
+		System.out.println("Digite os valores do vetor A:");
+		double[] vetorA = recuperaVetor();
+		System.out.println("Digite os valores do vetor B:");
+		double[] vetorB = recuperaVetor();
+		System.out.print("O vetor ");
+		imprimirVetorDouble(vetorA);
+		System.out.print(" concatenado com o vetor ");
+		imprimirVetorDouble(vetorB);
+		System.out.print(" é igual a ");
+		double[] vetoresConcatenados = Exercicios.concatenarVetor(vetorA, vetorB);
+		imprimirVetorDouble(vetoresConcatenados);
+		System.out.print(".");
+	}
+	
+	/**
+	 * Une dois vetores.
+	 */
+	public static void uniaoVetores() {
+		double[] vetorA = recuperaVetor();
+		System.out.println("Digite os valores do segundo vetor:");
+		double[] vetorB = recuperaVetor();
+		System.out.print("A união do vetor ");
+		imprimirVetorDouble(vetorA);
+		System.out.print(" e o vetor ");
+		imprimirVetorDouble(vetorB);
+		System.out.print(" é igual a ");
+		double[] uniao = Exercicios.unirVetores(vetorA, vetorB);
+		imprimirVetorDouble(uniao);
+		System.out.print(".");
+	}
+	
+	/**
+	 * Intersecta dois vetores.
+	 */
+	public static void intersecaoVetores() {
+		double[] vetorA = recuperaVetor();
+		System.out.println("Digite os valores do segundo vetor:");
+		double[] vetorB = recuperaVetor();
+		double[] intersecao = Exercicios.intersecaoVetores(vetorA, vetorB);
+		System.out.print("A interseção do vetor ");
+		imprimirVetorDouble(vetorA);
+		System.out.print(" e o vetor ");
+		imprimirVetorDouble(vetorB);
+		System.out.print(" é igual a ");
+		imprimirVetorDouble(intersecao);
+		System.out.print(".");
 	}
 	
 }
