@@ -12,7 +12,7 @@ import java.util.Collections;
 public class Principal {
 	
 	/**
-	 * FunÁ„o para iniciar o programa.
+	 * Fun√ß√£o para iniciar o programa.
 	 * 
 	 * @param args
 	 */
@@ -31,8 +31,18 @@ public class Principal {
 				           "Mostra elementos repetidos",
 				           "Preenche vetor crescente",
 				           "Concatena dois vetores",
-				           "Uni„o entre dois vetores",
-				           "InterseÁ„o entre dois vetores"};
+				           "Uni√£o entre dois vetores",
+				           "Interse√ß√£o entre dois vetores",
+				           "Mostra matriz",
+				           "Troca elementos",
+				           "Menor elemento da matriz",
+				           "Matriz transposta",
+				           "C√°lculo de determinante",
+				           "Menor elemento da linha",
+				           "Preenche matriz 1 ou 0",
+				           "Preenche matriz tr√¢ngular inferior e superior",
+				           "Preenche matriz diagonais",
+				           "Preenche matriz caixa"};
 		boolean continua = true;
 		do {
 			int opcao = Console.mostrarMenu(opcoes, "Lista 02", null);
@@ -47,13 +57,13 @@ public class Principal {
 			case 2:
 				ArrayList<Integer> maiores = criarArrayDeInteiros();
 				Integer maior = Collections.max(maiores);
-				System.out.println("O maior elemento do array " + maiores + " È " + maior + ".");
+				System.out.println("O maior elemento do array " + maiores + " √© " + maior + ".");
 				break;
 				
 			case 3:
 				ArrayList<Integer> menores = criarArrayDeInteiros();
 				Integer menor = Collections.min(menores);
-				System.out.println("O menor elemento do array " + menores + " È " + menor + ".");
+				System.out.println("O menor elemento do array " + menores + " √© " + menor + ".");
 				break;
 				
 			case 4:
@@ -110,6 +120,46 @@ public class Principal {
 				intersecaoVetores();
 				break;
 				
+			case 17:
+				mostraMatriz();
+				break;
+				
+			case 18:
+				trocaElementos();
+				break;
+				
+			case 19:
+				menorElementoMatriz();
+				break;
+				
+			case 20:
+				matrizTransposta();
+				break;
+				
+			case 21:
+				determinante();
+				break;
+				
+			case 22:
+				menorElementoLinha();
+				break;
+				
+			case 23:
+				preencheMatriz10();
+				break;
+				
+			case 24:
+				preencheMatrizTriangulo();
+				break;
+				
+			case 25:
+				preencheMatrizDiagonais();
+				break;
+				
+			case 26:
+				preencheMatrizCaixa();
+				break;
+				
 			case -1:
 				continua = false;
 				System.out.println("Saindo do sistema...");
@@ -119,8 +169,8 @@ public class Principal {
 	}
 	
 	/**
-	 * MÈtodo respons·vel por retornar um vetor com tamanho vari·vel e valores
-	 * escolhidos pelo usu·rio no console.
+	 * M√©todo respons√°vel por retornar um vetor com tamanho vari√°vel e valores
+	 * escolhidos pelo usu√°rio no console.
 	 * 
 	 * @return
 	 */
@@ -128,7 +178,7 @@ public class Principal {
 		int quantidadeElementos = Console.recuperaInteiro("Entre com a quantidade de elementos do vetor (inteiro):");
 		double[] valores = new double[quantidadeElementos];
 		for (int i = 0; i < valores.length; i++) {
-			valores[i] = Console.recuperaDecimal("Entre com o elemento de Ìndice " + i + " do vetor:");
+			valores[i] = Console.recuperaDecimal("Entre com o elemento de √≠ndice " + i + " do vetor:");
 		}
 		return valores;
 	}
@@ -185,7 +235,7 @@ public class Principal {
 	}
 	
 	/**
-	 * Cria um vetor de inteiros com a quantidade escolhida pelo usu·rio.
+	 * Cria um vetor de inteiros com a quantidade escolhida pelo usu√°rio.
 	 * 
 	 * @return Vetor de inteiros.
 	 */
@@ -207,7 +257,7 @@ public class Principal {
 		int quantidade = Console.recuperaInteiro("Informe a quantidade: ");
 		double[] valores = new double[quantidade];
 		for (int i = 0; i < quantidade; i++) {
-			valores[i] = Console.recuperaDecimal("Informe o " + (i + 1) + "∫ valor: ");
+			valores[i] = Console.recuperaDecimal("Informe o " + (i + 1) + "¬∫ valor: ");
 		}
 		return valores;
 	}
@@ -252,7 +302,7 @@ public class Principal {
 	
 	/**
 	 * Recebe um vetor de double de qualquer tamanho e posiciona o maior elemento na
-˙ltima posiÁ„o do vetor.
+√∫ltima posi√ß√£o do vetor.
 	 */
 	private static void ordenarMaior() {
 		System.out.println("Criar vetor");
@@ -262,16 +312,16 @@ public class Principal {
 	}
 	
 	/**
-	 * Cria a sÈrie de Fibonacci.
+	 * Cria a s√©rie de Fibonacci.
 	 */
 	public static void criarSerieFibonacci() {
-		int quantidade = Console.recuperaInteiro("Informe o tamanho da sequÍncia:");
+		int quantidade = Console.recuperaInteiro("Informe o tamanho da sequ√™ncia:");
 		ArrayList<Integer> fiboArray = Exercicios.criarSerieFibonacciComArray(quantidade);
 		System.out.println(fiboArray);
 	}
 	
 	/**
-	 * Analisa um vetor (maior, menor, soma e mÈdia dos elementos).
+	 * Analisa um vetor (maior, menor, soma e m√©dia dos elementos).
 	 */
 	private static void analisarVetor() {
 		System.out.println("Criar array");
@@ -319,7 +369,7 @@ public class Principal {
 		imprimirVetorDouble(vetorA);
 		System.out.print(" concatenado com o vetor ");
 		imprimirVetorDouble(vetorB);
-		System.out.print(" È igual a ");
+		System.out.print(" √© igual a ");
 		double[] vetoresConcatenados = Exercicios.concatenarVetor(vetorA, vetorB);
 		imprimirVetorDouble(vetoresConcatenados);
 		System.out.print(".");
@@ -332,11 +382,11 @@ public class Principal {
 		double[] vetorA = recuperaVetor();
 		System.out.println("Digite os valores do segundo vetor:");
 		double[] vetorB = recuperaVetor();
-		System.out.print("A uni„o do vetor ");
+		System.out.print("A uni√£o do vetor ");
 		imprimirVetorDouble(vetorA);
 		System.out.print(" e o vetor ");
 		imprimirVetorDouble(vetorB);
-		System.out.print(" È igual a ");
+		System.out.print(" √© igual a ");
 		double[] uniao = Exercicios.unirVetores(vetorA, vetorB);
 		imprimirVetorDouble(uniao);
 		System.out.print(".");
@@ -350,13 +400,171 @@ public class Principal {
 		System.out.println("Digite os valores do segundo vetor:");
 		double[] vetorB = recuperaVetor();
 		double[] intersecao = Exercicios.intersecaoVetores(vetorA, vetorB);
-		System.out.print("A interseÁ„o do vetor ");
+		System.out.print("A interse√ß√£o do vetor ");
 		imprimirVetorDouble(vetorA);
 		System.out.print(" e o vetor ");
 		imprimirVetorDouble(vetorB);
-		System.out.print(" È igual a ");
+		System.out.print(" √© igual a ");
 		imprimirVetorDouble(intersecao);
 		System.out.print(".");
+	}
+	
+	/**
+	 * Mostra uma matriz no formato "quadrado"
+	 */
+	private static void mostraMatriz() {
+		int[][] matriz = recuperaMatriz();
+		Exercicios.mostraMatriz(matriz);
+	}
+	
+	/**
+	 * M√©todo respons√°vel por retornar uma matriz com tamanho vari√°vel e valores escolhidos pelo usu√°rio no console.
+	 * 
+	 * @return
+	 */
+	public static int[][] recuperaMatriz() {
+		int linhas = Console.recuperaInteiro("Entre com a quantidade de linhas:");
+		int colunas = Console.recuperaInteiro("Entre com a quantidade de colunas:");
+		int[][] matriz = new int[linhas][colunas];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = Console.recuperaInteiro("Entre com o elemento de √≠ndice (" + i + ", " + j + ") do vetor:");
+			}
+		}
+		return matriz;
+	}
+	
+	/**
+	 * Troca os elementos entre duas matrizes.
+	 */
+	private static void trocaElementos() {
+		int[][] matrizA = recuperaMatriz();
+		int[][] matrizB = recuperaMatrizTamanhoFixo(matrizA.length,
+				matrizA[0].length);
+		System.out.println("Antes da troca:");
+		Exercicios.mostraMatriz(matrizA);
+		System.out.println();
+		Exercicios.mostraMatriz(matrizB);
+		Exercicios.trocaElementos(matrizA, matrizB);
+		System.out.println();
+		System.out.println("Depois da troca:");
+		Exercicios.mostraMatriz(matrizA);
+		System.out.println();
+		Exercicios.mostraMatriz(matrizB);
+	}
+	
+	/**
+	 * M√©todo respons√°vel por retornar uma matriz com tamanho fixo e valores escolhidos pelo usu√°rio no console.
+	 * 
+	 * @return
+	 */
+	public static int[][] recuperaMatrizTamanhoFixo(int linhas, int colunas) {
+		int[][] matriz = new int[linhas][colunas];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = Console.recuperaInteiro("Entre com o elemento de √≠ndice (" + i + ", " + j + ") do vetor:");
+			}
+		}
+		return matriz;
+	}
+	
+	/**
+	 * Mostra o menor elemento da matriz.
+	 */
+	private static void menorElementoMatriz() {
+		int[][] matriz = recuperaMatriz();
+		int menorElemento = Exercicios.menorElemento(matriz);
+		System.out.println("O menor elemento da matriz:");
+		Exercicios.mostraMatriz(matriz);
+		System.out.println("√© o n√∫mero: " + menorElemento + ".");
+	}
+	
+	/**
+	 * Mostra a matriz transposta daquela informada.
+	 */
+	private static void matrizTransposta() {
+		int[][] matriz = recuperaMatriz();
+		int[][] matrizTransposta = Exercicios.matrizTransposta(matriz);
+		System.out.println("A matriz transposta da matriz:");
+		Exercicios.mostraMatriz(matriz);
+		System.out.println("√© a matriz:");
+		Exercicios.mostraMatriz(matrizTransposta);
+	}
+	
+	/**
+	 * Retorna a determinante da matriz informada.
+	 */
+	private static void determinante() {
+		int[][] matriz = recuperaMatrizQuadrada();
+		System.out.println("O determinante da matriz:");
+		Exercicios.mostraMatriz(matriz);
+		int determinante = Exercicios.calcularDeterminante(matriz);
+		System.out.println("√©: " + determinante + ".");
+	}
+	
+	/**
+	 * M√©todo respons√°vel por retornar uma matriz quadrada. Utiliza os outros m√©todos para auxilio e reaproveitamento de comportamentos.
+	 * 
+	 * @return
+	 */
+	public static int[][] recuperaMatrizQuadrada() {
+		int linhasColunas = Console
+				.recuperaInteiro("Entre com a quantidade de linhas e colunas:");
+		return recuperaMatrizTamanhoFixo(linhasColunas, linhasColunas);
+	}
+	
+	/**
+	 * Mostra o menor elemento de cada linha da matriz.
+	 */
+	private static void menorElementoLinha() {
+		int[][] matriz = recuperaMatriz();
+		int[] menores = Exercicios.menorElementoLinha(matriz);
+		System.out.println("Os menores valores das linhas da matriz:");
+		Exercicios.mostraMatriz(matriz);
+		System.out.println("sƒÉo:");
+		imprimirVetorInteiros(menores);
+	}
+	
+	/**
+	 * Preenche a matriz de acordo com o padr√£o solicitado.
+	 */
+	private static void preencheMatriz10() {
+		int linhas = Console
+				.recuperaInteiro("Entre com a quantidade de linhas:");
+		int colunas = Console
+				.recuperaInteiro("Entre com a quantidade de colunas:");
+		int[][] matriz = Exercicios.preencheMatrizBinaria(linhas, colunas);
+		Exercicios.mostraMatriz(matriz);
+	}
+	
+	/**
+	 * Preenche a matriz de acordo com o padr√£o solicitado.
+	 */
+	private static void preencheMatrizTriangulo() {
+		int linhasColunas = Console
+				.recuperaInteiro("Entre com a quantidade de linhas e colunas:");
+		int[][] matriz = Exercicios.preencheMatrizTriangulo(linhasColunas);
+		Exercicios.mostraMatriz(matriz);
+	}
+	
+	/**
+	 * Preenche a matriz de acordo com o padr√£o solicitado.
+	 */
+	private static void preencheMatrizDiagonais() {
+		int linhasColunas = Console
+				.recuperaInteiro("Entre com a quantidade de linhas e colunas:");
+		int[][] matriz = Exercicios.preencheMatrizDiagonais(linhasColunas);
+		Exercicios.mostraMatriz(matriz);
+	}
+	
+	/**
+	 * Preenche a matriz de acordo com o padr√£o solicitado.
+	 */
+	private static void preencheMatrizCaixa() {
+		int linhasColunas = Console
+				.recuperaInteiro("Entre com a quantidade de linhas e colunas:");
+		int[][] matriz = Exercicios.preencheMatrizCaixa(linhasColunas);
+		Exercicios.mostraMatriz(matriz);
 	}
 	
 }
