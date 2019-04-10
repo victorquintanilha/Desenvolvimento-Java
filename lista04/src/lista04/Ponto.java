@@ -41,6 +41,13 @@ public class Ponto {
 		this.y = y;
 	}
 	
+	/**
+	 * Calcula a distância do ponto atual até as coordenadas informadas.
+	 * 
+	 * @param x
+	 * @param y
+	 * @return a distância.
+	 */
 	public Double distancia(Double x, Double y) {
 		return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
 	}

@@ -10,8 +10,6 @@ import java.util.ArrayList;
  */
 public class Livro {
 	
-	//Estados
-	
 	private String codigo;
 	
 	private String titulo;
@@ -22,7 +20,24 @@ public class Livro {
 	
 	private Integer ano;
 	
-	//Comportamentos
+	/**
+	 * @param codigo
+	 * @param titulo
+	 * @param autores
+	 * @param isbn
+	 * @param ano
+	 */
+	public Livro(String codigo, String titulo, ArrayList<String> autores, String isbn, Integer ano) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.autores = autores;
+		this.isbn = isbn;
+		this.ano = ano;
+	}
+	
+	public Livro() {
+
+	}
 	
 	public String getCodigo() {
 		return codigo;
@@ -62,6 +77,15 @@ public class Livro {
 
 	public void setAno(Integer ano) {
 		this.ano = ano;
+	}
+	
+	@Override
+	public String toString() {
+		return "Codigo: " + this.codigo
+			 + "\nTitulo: " + this.titulo
+			 + "\nAutores: " + this.autores
+			 + "\nISBN: " + this.isbn
+			 + "\nAno: " + this.ano;
 	}
 	
 }

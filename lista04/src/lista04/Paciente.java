@@ -16,6 +16,10 @@ public class Paciente {
 	
 	private ArrayList<String> doencas;
 	
+	/**
+	 * @param codigo
+	 * @param nome
+	 */
 	public Paciente(String codigo, String nome) {
 		this.codigo = codigo;
 		this.nome = nome;
@@ -49,6 +53,11 @@ public class Paciente {
 		//}
 		
 		this.doencas.add(doenca);
+	}
+	
+	@Override
+	public String toString() {
+		return "Paciente [codigo=" + codigo + ", nome=" + nome + ", doencas=" + doencas + "]";
 	}
 	
 }

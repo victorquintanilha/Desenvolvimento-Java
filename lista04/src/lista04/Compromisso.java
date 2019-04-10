@@ -55,5 +55,9 @@ public class Compromisso {
 		this.medico = medico;
 	}
 	
+	@Override
+	public String toString() {
+		return "Compromisso [paciente=" + paciente + ", data=" + data + ", hora=" + hora + ", medico=" + medico + "]";
+	}
 	
 }
